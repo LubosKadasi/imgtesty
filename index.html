@@ -26,11 +26,36 @@
     var _i = new Date().getTime();
     document.write('<img src=./media/100slavnyc.jpg?i=' + _i + '" alt="">');
   </script>
+  
+
+  <h2>&lt;picture&gt; - element with srcset</h2>
+
+  <picture>
+    <source media="(max-width: 799px)" srcset="https://via.placeholder.com/600/DEAF00/000000?Text=600">
+    <source media="(min-width: 800px)" srcset="https://via.placeholder.com/1200/DEAF00/000000?Text=1200">
+    <img src="https://via.placeholder.com/3999/DEAF00/000000?Text=3999" alt="">
+  </picture>
+
+  <h2>&lt;img&gt; - element with srcset</h2>
+
+  <script type="text/javascript">
+    var _i = new Date().getTime();
+    document.write('<img srcset="https://via.placeholder.com/600/DEAF00/000000?Text=600&' + _i + ' 800w, https://via.placeholder.com/1200/DEAF00/000000?Text=1200&' + _i + ' 2000w, https://via.placeholder.com/2000/DEAF00/000000?Text=2000&' + _i + ' 1500w"src="https://via.placeholder.com/3999/DEAF00/000000?Text=3999&' + _i + '" alt="">');
+  </script>
+
+  <!-- 
+     sizes="(max-width: 800px) 600px, (max-width: 1500px) 1200px, 2000px" 
+
+    <script type="text/javascript">
+    var _i = new Date().getTime();
+    document.write('<img src="https://placeimg.com/3000/3000/any?' + _i + '" alt="">');
+  </script>
+
 
   <script type="text/javascript">
     var _j = new Date().getTime();
     document.write('<script type="text/javascript" src="./build/app.min.js?j=' + _j + '"><\/script>');
-  </script>
+  </script> -->
 </body>
 
 </html>
