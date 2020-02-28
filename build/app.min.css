@@ -1,2 +1,2 @@
-body{background-color:#3a3930;color:#fff}img{display:inline-block;max-width:100%}
+body{background-color:#3a3930;color:#fff;font-family:Arial,Helvetica,sans-serif}img{display:inline-block;max-width:100%}[data-code]{margin:1rem 0}textarea{display:block;width:100%;height:auto;min-width:100%;min-height:4rem;background-color:#2b2b2b;color:#fff;border:none;display:flex;box-shadow:0 0 1.5rem 0 rgba(0,0,0,.5)}[data-code-show]{position:relative}[data-code-show]::before{content:"</>";font-weight:700;font-family:monospace;color:#000;display:block;position:absolute;top:0;right:0;padding:.5rem;cursor:pointer;background-color:#f90}
 /*# sourceMappingURL=app.min.css.map */
