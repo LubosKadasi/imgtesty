@@ -52,7 +52,7 @@
 </head>
 
 <body>
-  <h1>SW 15</h1>
+  <h1>SW 20</h1>
   <img src="./dog.jpg" alt="" />
   <!-- The actual snackbar -->
   <div id="snackbar">A new version of this app is available. Click <a id="reload">here</a> to update.</div>
@@ -71,40 +71,38 @@
       newWorker.postMessage({ action: 'skipWaiting' });
     });
   
-    //if ('serviceWorker' in navigator) {
-
-      window.addEventListener('focus', function(){
-
-        navigator.serviceWorker.register('./service-worker.js').then(reg => {
-          reg.addEventListener('updatefound', () => {
-            // A wild service worker has appeared in reg.installing!
-            newWorker = reg.installing;
-            
-            newWorker.addEventListener('statechange', () => {
-              // Has network.state changed?
-              switch (newWorker.state) {
-                case 'installed':
-                  if (navigator.serviceWorker.controller) {
-                    // new update available
-                    showUpdateBar();
-                  }
-                  // No update available
-                  break;
+    if ('serviceWorker' in navigator) {
+  
+      navigator.serviceWorker.register('./service-worker.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+          // A wild service worker has appeared in reg.installing!
+          newWorker = reg.installing;
+  
+          newWorker.addEventListener('statechange', () => {
+            // Has network.state changed?
+            switch (newWorker.state) {
+              case 'installed':
+                if (navigator.serviceWorker.controller) {
+                  // new update available
+                  showUpdateBar();
                 }
-              });
-            });
+                // No update available
+                break;
+            }
           });
+          window.addEventListener('focus', reg.update());
         });
-          
-          let refreshing;
-          navigator.serviceWorker.addEventListener('controllerchange', function () {
-            if (refreshing) return;
-            window.location.reload();
-            refreshing = true;
-          });
-       // }
-        
-        </script>
-        </body>
+      });
+  
+      let refreshing;
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (refreshing) return;
+        window.location.reload();
+        refreshing = true;
+      });
+    }
+  
+  </script>
+</body>
 
-        </html>
+</html>
